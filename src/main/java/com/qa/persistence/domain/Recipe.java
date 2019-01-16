@@ -1,6 +1,11 @@
 package com.qa.persistence.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Recipe {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int recipeID;
 	private boolean isPublic;
 	private String recipeName;

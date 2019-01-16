@@ -1,6 +1,11 @@
 package com.qa.persistence.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Meal {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int mealID;
 	private int date;
 	private MealTime mealTime;

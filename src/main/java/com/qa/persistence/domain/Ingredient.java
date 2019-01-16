@@ -1,6 +1,10 @@
 package com.qa.persistence.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Ingredient {
+	@Id
 	private String ingredientName;
 	private boolean isVegitarian;
 	private boolean isVegan;

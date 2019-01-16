@@ -1,6 +1,10 @@
 package com.qa.persistence.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Account {
+	@Id
 	private String userName;
 	private String password;
 	
