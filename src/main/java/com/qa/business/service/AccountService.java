@@ -1,7 +1,7 @@
 package com.qa.business.service;
 
 public interface AccountService {
-	public String getAllAccounts(String accountJSON);
+	public String getAccount(String accountJSON);
 
 	public String createAccount(String accountJSON);
 

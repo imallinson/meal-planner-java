@@ -17,7 +17,7 @@ public class AccountEndpoint {
 	@Path("/json")
 	@GET
 	public String getAccount(String account) {
-		return service.getAllAccounts(account);
+		return service.getAccount(account);
 	}
 
 	@Path("/json")
