@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Meal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int mealID;
+	private Long mealID;
 	private int date;
 	private MealTime mealTime;
 
@@ -26,7 +26,7 @@ public class Meal {
 		this.mealTime = mealTime;
 	}
 
-	public int getMealID() {
+	public Long getMealID() {
 		return mealID;
 	}
 

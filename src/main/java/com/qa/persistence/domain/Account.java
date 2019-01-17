@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Account {
 	@Id
-	private String userName;
+	private String username;
 	private String password;
 	
 	public String getPassword() {
@@ -16,8 +16,8 @@ public class Account {
 		this.password = password;
 	}
 	
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 		
 }

@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Recipe {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int recipeID;
+	private Long recipeID;
 	private boolean isPublic;
 	private String recipeName;
 
@@ -26,7 +26,7 @@ public class Recipe {
 		this.recipeName = recipeName;
 	}
 
-	public int getRecipeID() {
+	public Long getRecipeID() {
 		return recipeID;
 	}
 
