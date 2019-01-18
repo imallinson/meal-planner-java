@@ -1,5 +1,7 @@
 package com.qa.persistence.domain;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,6 +11,9 @@ public class Recipe {
 	private Long recipeID;
 	private boolean isPublic;
 	private String recipeName;
+	private int servings;
+	@OneToMany(mappedBy="recipeID", cascade=CascadeType.PERSIST)
+	private List<Ingredient> ingredients;
 
 	public boolean isPublic() {
 		return isPublic;
@@ -30,4 +35,16 @@ public class Recipe {
 		return recipeID;
 	}
 
+	public int getServings() {
+		return servings;
+	}
+
+	public void setServings(int servings) {
+		this.servings = servings;
+	}
+
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+	
 }

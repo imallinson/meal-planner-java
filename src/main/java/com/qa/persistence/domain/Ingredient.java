@@ -5,7 +5,11 @@ import javax.persistence.*;
 @Entity
 public class Ingredient {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long ingredientID;
 	private String ingredientName;
+	private Double amount;
+	private Measurement measure;
 	private boolean isVegitarian;
 	private boolean isVegan;
 	private boolean hasGluten;
@@ -49,6 +53,22 @@ public class Ingredient {
 
 	public void setHasNuts(boolean hasNuts) {
 		this.hasNuts = hasNuts;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public Measurement getMeasure() {
+		return measure;
+	}
+
+	public void setMeasure(Measurement measure) {
+		this.measure = measure;
 	}
 
 }
