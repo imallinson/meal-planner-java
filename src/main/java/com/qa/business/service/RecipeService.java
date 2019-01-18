@@ -2,12 +2,12 @@ package com.qa.business.service;
 
 public interface RecipeService {
 
-	String getRecipe(String recipe);
+	String getRecipe(String recipeJSON);
 
-	String createRecipe(String recipe);
+	String createRecipe(String recipeJSON);
 
-	String deleteRecipe(String recipe);
+	String deleteRecipe(String recipeJSON);
 
-	String updateRecipe(String recipe);
+	String updateRecipe(String recipeJSON);
 
 }

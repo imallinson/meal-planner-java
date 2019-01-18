@@ -14,28 +14,28 @@ public class MealEndpoint {
 	@Inject
 	private MealService service;
 
-	@Path("/json")
+	@Path("/get")
 	@GET
-	public String getMeal(String meal) {
-		return service.getMeal(meal);
+	public String getMeal(String mealJSON) {
+		return service.getMeal(mealJSON);
 	}
-
-	@Path("/json")
+	
+	@Path("/create")
 	@POST
-	public String createMeal(String meal) {
-		return service.createMeal(meal);
+	public String createMeal(String mealJSON) {
+		return service.createMeal(mealJSON);
 	}
-
-	@Path("/json")
+	
+	@Path("/delete")
 	@DELETE
-	public String deleteMeal(String meal) {
-		return service.deleteMeal(meal);
+	public String deleteMeal(String mealJSON) {
+		return service.deleteMeal(mealJSON);
 	}
-
-	@Path("/json")
+	
+	@Path("/update")
 	@PUT
-	public String updateMeal(String meal) {
-		return service.updateMeal(meal);
+	public String updateMeal(String mealJSON) {
+		return service.updateMeal(mealJSON);
 	}
 
 	public void setService(MealService service) {

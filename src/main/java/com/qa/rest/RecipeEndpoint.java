@@ -14,28 +14,28 @@ public class RecipeEndpoint {
 	@Inject
 	private RecipeService service;
 
-	@Path("/json")
+	@Path("/get")
 	@GET
-	public String getRecipe(String recipe) {
-		return service.getRecipe(recipe);
+	public String getRecipe(String recipeJSON) {
+		return service.getRecipe(recipeJSON);
 	}
-
-	@Path("/json")
+	
+	@Path("/create")
 	@POST
-	public String createRecipe(String recipe) {
-		return service.createRecipe(recipe);
+	public String createRecipe(String recipeJSON) {
+		return service.createRecipe(recipeJSON);
 	}
-
-	@Path("/json")
+	
+	@Path("/delete")
 	@DELETE
-	public String deleteRecipe(String recipe) {
-		return service.deleteRecipe(recipe);
+	public String deleteRecipe(String recipeJSON) {
+		return service.deleteRecipe(recipeJSON);
 	}
-
-	@Path("/json")
+	
+	@Path("/update")
 	@PUT
-	public String updateRecipe(String recipe) {
-		return service.updateRecipe(recipe);
+	public String updateRecipe(String recipeJSON) {
+		return service.updateRecipe(recipeJSON);
 	}
 
 	public void setService(RecipeService service) {
