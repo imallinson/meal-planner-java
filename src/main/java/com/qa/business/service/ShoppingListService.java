@@ -1,5 +1,5 @@
 package com.qa.business.service;
 
-public interface RecipeService {
+public interface ShoppingListService {
 
 }
