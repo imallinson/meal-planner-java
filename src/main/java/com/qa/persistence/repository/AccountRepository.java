@@ -4,7 +4,7 @@ import com.qa.persistence.domain.Account;
 
 public interface AccountRepository {
 	
-	String checkAccount(Account account);
+	boolean checkAccount(Account account);
 
 	String createAccount(Account account);
 	

@@ -14,7 +14,7 @@ public class AccountEndpoint {
 
 	@Path("/get")
 	@GET
-	public String checkAccount(String accountJSON) {
+	public boolean checkAccount(String accountJSON) {
 		return service.checkAccount(accountJSON);
 	}
 	

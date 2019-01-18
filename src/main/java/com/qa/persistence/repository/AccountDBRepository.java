@@ -1,19 +1,45 @@
 package com.qa.persistence.repository;
 
-import com.qa.persistence.domain.Account;
+import static javax.transaction.Transactional.TxType.*;
 
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import com.qa.persistence.domain.Account;
+import com.qa.util.JSONUtil;
+
+@Transactional(SUPPORTS)
 public class AccountDBRepository implements AccountRepository {
+	@PersistenceContext(unitName = "primary")
+	private EntityManager manager;
+
+	@Inject
+	private JSONUtil util;
 
 	@Override
-	public String checkAccount(Account account) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean checkAccount(Account account) {
+		Account accountInDB = findAccount(account.getUsername());
+		if (account.getPassword().equals(accountInDB.getPassword())) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
+	@Transactional(REQUIRED)
 	public String createAccount(Account account) {
-		// TODO Auto-generated method stub
-		return null;
+		Account accountInDB = findAccount(account.getUsername());
+		if (accountInDB == null) {
+			manager.persist(account);
+			return "{\"message\": \"account sucessfully created\"}";
+		}
+		return "{\"message\": \"account with that username already exists\"}";
+	}
+	
+	private Account findAccount(String username) {
+		return manager.find(Account.class, username);
 	}
 
 }
