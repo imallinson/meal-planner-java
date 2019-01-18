@@ -6,6 +6,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
 import com.qa.business.service.RecipeService;
 
@@ -18,6 +19,18 @@ public class RecipeEndpoint {
 	@GET
 	public String getRecipe(String recipeJSON) {
 		return service.getRecipe(recipeJSON);
+	}
+	
+	@Path("/user/{username}")
+	@GET
+	public String getUsersRecipe(@PathParam("username") String username) {
+		return service.getUsersRecipe(username);
+	}
+	
+	@Path("/search/{searchString}")
+	@GET
+	public String searchRecipes(@PathParam("searchString") String searchString) {
+		return service.searchRecipes(searchString);
 	}
 	
 	@Path("/create")

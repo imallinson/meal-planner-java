@@ -21,6 +21,16 @@ public class RecipeServiceImp implements RecipeService {
 	}
 
 	@Override
+	public String getUsersRecipe(String username) {
+		return repo.getUsersRecipe(username);
+	}
+
+	@Override
+	public String searchRecipes(String searchString) {
+		return repo.searchRecipes(searchString);
+	}
+
+	@Override
 	public String createRecipe(String recipeJSON) {
 		Recipe recipe = util.getObjectForJSON(recipeJSON, Recipe.class);
 		return repo.createRecipe(recipe);

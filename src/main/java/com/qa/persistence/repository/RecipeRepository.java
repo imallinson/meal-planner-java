@@ -19,4 +19,8 @@ public interface RecipeRepository {
 
 	String updateIngredient(Ingredient ingredient);
 
+	String getUsersRecipe(String username);
+
+	String searchRecipes(String searchString);
+
 }

@@ -16,4 +16,8 @@ public interface RecipeService {
 
 	String updateIngredient(String ingredientJSON);
 
+	String getUsersRecipe(String username);
+
+	String searchRecipes(String searchString);
+
 }
