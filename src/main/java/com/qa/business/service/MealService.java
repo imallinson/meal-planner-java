@@ -2,12 +2,12 @@ package com.qa.business.service;
 
 public interface MealService {
 
-	String getAccount(String account);
+	String getMeal(String meal);
 
-	String createAccount(String account);
+	String createMeal(String meal);
 
-	String deleteAccount(String account);
+	String deleteMeal(String meal);
 
-	String updateAccount(String account);
+	String updateMeal(String meal);
 
 }

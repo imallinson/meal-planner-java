@@ -16,26 +16,26 @@ public class IngredientEndpoint {
 
 	@Path("/json")
 	@GET
-	public String getAccount(String account) {
-		return service.getIngredient(account);
+	public String getIngredient(String ingredient) {
+		return service.getIngredient(ingredient);
 	}
 
 	@Path("/json")
 	@POST
-	public String createAccount(String account) {
-		return service.createIngredient(account);
+	public String createIngredient(String ingredient) {
+		return service.createIngredient(ingredient);
 	}
 
 	@Path("/json")
 	@DELETE
-	public String deleteAccount(String account) {
-		return service.deleteIngredient(account);
+	public String deleteIngredient(String ingredient) {
+		return service.deleteIngredient(ingredient);
 	}
 
 	@Path("/json")
 	@PUT
-	public String updateAccount(String account) {
-		return service.updateIngredient(account);
+	public String updateIngredient(String ingredient) {
+		return service.updateIngredient(ingredient);
 	}
 
 	public void setService(IngredientService service) {

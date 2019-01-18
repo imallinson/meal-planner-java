@@ -16,26 +16,26 @@ public class RecipeEndpoint {
 
 	@Path("/json")
 	@GET
-	public String getAccount(String account) {
-		return service.getAccount(account);
+	public String getRecipe(String recipe) {
+		return service.getRecipe(recipe);
 	}
 
 	@Path("/json")
 	@POST
-	public String createAccount(String account) {
-		return service.createAccount(account);
+	public String createRecipe(String recipe) {
+		return service.createRecipe(recipe);
 	}
 
 	@Path("/json")
 	@DELETE
-	public String deleteAccount(String account) {
-		return service.deleteAccount(account);
+	public String deleteRecipe(String recipe) {
+		return service.deleteRecipe(recipe);
 	}
 
 	@Path("/json")
 	@PUT
-	public String updateAccount(String account) {
-		return service.updateAccount(account);
+	public String updateRecipe(String recipe) {
+		return service.updateRecipe(recipe);
 	}
 
 	public void setService(RecipeService service) {

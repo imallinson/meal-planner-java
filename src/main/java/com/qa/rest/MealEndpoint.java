@@ -16,26 +16,26 @@ public class MealEndpoint {
 
 	@Path("/json")
 	@GET
-	public String getAccount(String account) {
-		return service.getAccount(account);
+	public String getMeal(String meal) {
+		return service.getMeal(meal);
 	}
 
 	@Path("/json")
 	@POST
-	public String createAccount(String account) {
-		return service.createAccount(account);
+	public String createMeal(String meal) {
+		return service.createMeal(meal);
 	}
 
 	@Path("/json")
 	@DELETE
-	public String deleteAccount(String account) {
-		return service.deleteAccount(account);
+	public String deleteMeal(String meal) {
+		return service.deleteMeal(meal);
 	}
 
 	@Path("/json")
 	@PUT
-	public String updateAccount(String account) {
-		return service.updateAccount(account);
+	public String updateMeal(String meal) {
+		return service.updateMeal(meal);
 	}
 
 	public void setService(MealService service) {
