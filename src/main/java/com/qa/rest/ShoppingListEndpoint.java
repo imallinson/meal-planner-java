@@ -10,14 +10,14 @@ import javax.ws.rs.Path;
 import com.qa.business.service.ShoppingListService;
 
 @Path("/list")
-public class ShoppingListEndpooint {
+public class ShoppingListEndpoint {
 	@Inject
 	private ShoppingListService service;
 	
 	@Path("/get")
 	@GET
-	public String getShoppingList(String usernameJSON) {
-		return service.getShoppingList(usernameJSON);
+	public String getShoppingList(String accountJSON) {
+		return service.getShoppingList(accountJSON);
 	}
 	
 	@Path("/meal")
