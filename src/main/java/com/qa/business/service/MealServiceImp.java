@@ -8,7 +8,7 @@ import com.qa.util.JSONUtil;
 
 public class MealServiceImp implements MealService {
 	@Inject
-	MealRepostiory repo;
+	private MealRepostiory repo;
 	
 	@Inject
 	private JSONUtil util;
