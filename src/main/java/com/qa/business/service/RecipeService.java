@@ -10,4 +10,10 @@ public interface RecipeService {
 
 	String updateRecipe(String recipeJSON);
 
+	String addIngredient(String ingredientJSON);
+
+	String deleteIngredient(String ingredientJSON);
+
+	String updateIngredient(String ingredientJSON);
+
 }

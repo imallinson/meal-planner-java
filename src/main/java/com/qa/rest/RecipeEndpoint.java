@@ -37,6 +37,24 @@ public class RecipeEndpoint {
 	public String updateRecipe(String recipeJSON) {
 		return service.updateRecipe(recipeJSON);
 	}
+	
+	@Path("/ingredient")
+	@POST
+	public String addIngredient(String ingredientJSON) {
+		return service.addIngredient(ingredientJSON);
+	}
+	
+	@Path("/ingredient")
+	@DELETE
+	public String deleteIngredient(String ingredientJSON) {
+		return service.deleteIngredient(ingredientJSON);
+	}
+	
+	@Path("/ingredient")
+	@PUT
+	public String updateIngredient(String ingredientJSON) {
+		return service.updateIngredient(ingredientJSON);
+	}
 
 	public void setService(RecipeService service) {
 		this.service = service;
