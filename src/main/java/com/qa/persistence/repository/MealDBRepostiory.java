@@ -1,31 +1,45 @@
 package com.qa.persistence.repository;
 
+import static javax.transaction.Transactional.TxType.SUPPORTS;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
 import com.qa.persistence.domain.Meal;
 
+@Transactional(SUPPORTS)
 public class MealDBRepostiory implements MealRepostiory {
+	@PersistenceContext(unitName = "primary")
+	private EntityManager manager;
 
 	@Override
-	public String getMeal(Meal meal) {
-		// TODO Auto-generated method stub
-		return null;
+	public Meal getMeal(Meal meal) {
+		return findMeal(meal.getMealID());
 	}
 
 	@Override
 	public String createMeal(Meal meal) {
-		// TODO Auto-generated method stub
-		return null;
+		manager.persist(meal);
+		return "{\"message\": \"meal sucessfully created\"}";
 	}
 
 	@Override
 	public String deleteMeal(Meal meal) {
-		// TODO Auto-generated method stub
-		return null;
+		manager.remove(meal);
+		return "{\"message\": \"meal sucessfully deleted\"}";
 	}
 
 	@Override
 	public String updateMeal(Meal meal) {
-		// TODO Auto-generated method stub
-		return null;
+		Meal mealInDB = findMeal(meal.getMealID());
+		manager.remove(mealInDB);
+		manager.persist(meal);
+		return "{\"message\": \"meal sucessfully updated\"}";
+	}
+	
+	private Meal findMeal(Long mealID) {
+		return manager.find(Meal.class, mealID);
 	}
 
 }

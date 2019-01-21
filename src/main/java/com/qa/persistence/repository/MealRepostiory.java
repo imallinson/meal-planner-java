@@ -4,7 +4,7 @@ import com.qa.persistence.domain.Meal;
 
 public interface MealRepostiory {
 
-	String getMeal(Meal meal);
+	Meal getMeal(Meal meal);
 
 	String createMeal(Meal meal);
 

@@ -16,7 +16,7 @@ public class MealServiceImp implements MealService {
 	@Override
 	public String getMeal(String mealJSON) {
 		Meal meal = util.getObjectForJSON(mealJSON, Meal.class);
-		return repo.getMeal(meal);
+		return util.getJSONForObject(repo.getMeal(meal));
 	}
 
 	@Override
