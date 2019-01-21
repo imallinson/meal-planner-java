@@ -14,6 +14,8 @@ public class Ingredient {
 	private boolean isVegan;
 	private boolean hasGluten;
 	private boolean hasNuts;
+	private Long recipeID;
+	private Long shoppingListID;
 
 	public String getIngredientName() {
 		return ingredientName;
@@ -69,6 +71,18 @@ public class Ingredient {
 
 	public void setMeasure(Measurement measure) {
 		this.measure = measure;
+	}
+
+	public Long getIngredientID() {
+		return ingredientID;
+	}
+
+	public Long getRecipeID() {
+		return recipeID;
+	}
+
+	public Long getShoppingListID() {
+		return shoppingListID;
 	}
 
 }

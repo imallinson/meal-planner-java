@@ -1,6 +1,6 @@
 package com.qa.persistence.repository;
 
-import static javax.transaction.Transactional.TxType.REQUIRED;
+import static javax.transaction.Transactional.TxType.REQUIRED; 
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 import java.util.List;
@@ -43,47 +43,55 @@ public class RecipeDBRepository implements RecipeRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String createRecipe(Recipe recipe) {
-		
-		return null;
+		manager.persist(recipe);
+		return "{\"message\": \"recipe sucessfully created\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteRecipe(Recipe recipe) {
-		// TODO Auto-generated method stub
-		return null;
+		manager.remove(recipe);
+		return "{\"message\": \"recipe sucessfully deleted\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String updateRecipe(Recipe recipe) {
-		// TODO Auto-generated method stub
-		return null;
+		Recipe recipeInDB = findRecipe(recipe.getRecipeID());
+		manager.remove(recipeInDB);
+		manager.persist(recipe);
+		return "{\"message\": \"recipe sucessfully updated\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String addIngredient(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return null;
+		manager.persist(ingredient);
+		return "{\"message\": \"ingredient sucessfully created\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteIngredient(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return null;
+		manager.remove(ingredient);
+		return "{\"message\": \"ingredient sucessfully deleted\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String updateIngredient(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return null;
+		Ingredient ingredientInDB = findIngredient(ingredient.getIngredientID());
+		manager.remove(ingredientInDB);
+		manager.persist(ingredient);
+		return "{\"message\": \"ingredient sucessfully updated\"}";
 	}
-	
+
 	private Recipe findRecipe(Long recipeID) {
 		return manager.find(Recipe.class, recipeID);
+	}
+	
+	private Ingredient findIngredient(Long ingredientID) {
+		return manager.find(Ingredient.class, ingredientID);
 	}
 
 }
