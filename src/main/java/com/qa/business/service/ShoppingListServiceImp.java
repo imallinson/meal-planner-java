@@ -18,7 +18,7 @@ public class ShoppingListServiceImp implements ShoppingListService {
 	@Override
 	public String getShoppingList(String accountJSON) {
 		Account account = util.getObjectForJSON(accountJSON, Account.class);
-		return repo.getShoppingList(account);
+		return util.getJSONForObject(repo.getShoppingList(account));
 	}
 
 	@Override

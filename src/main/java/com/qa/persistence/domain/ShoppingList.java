@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Entity
 public class ShoppingList {
+	@Id
 	@OneToOne(mappedBy="username", cascade=CascadeType.PERSIST)
 	private Account account;
 	@OneToMany(mappedBy="shoppingListID", cascade=CascadeType.PERSIST)
