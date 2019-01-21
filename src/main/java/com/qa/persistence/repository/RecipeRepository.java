@@ -1,11 +1,17 @@
 package com.qa.persistence.repository;
 
+import java.util.List;
+
 import com.qa.persistence.domain.Ingredient;
 import com.qa.persistence.domain.Recipe;
 
 public interface RecipeRepository {
 
-	String getRecipe(Recipe recipe);
+	Recipe getRecipe(Recipe recipe);
+
+	List<Recipe> getUsersRecipe(String username);
+
+	List<Recipe> searchRecipes(String searchString);
 
 	String createRecipe(Recipe recipe);
 
@@ -18,9 +24,5 @@ public interface RecipeRepository {
 	String deleteIngredient(Ingredient ingredient);
 
 	String updateIngredient(Ingredient ingredient);
-
-	String getUsersRecipe(String username);
-
-	String searchRecipes(String searchString);
 
 }

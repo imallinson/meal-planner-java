@@ -17,17 +17,17 @@ public class RecipeServiceImp implements RecipeService {
 	@Override
 	public String getRecipe(String recipeJSON) {
 		Recipe recipe = util.getObjectForJSON(recipeJSON, Recipe.class);
-		return repo.getRecipe(recipe);
+		return util.getJSONForObject(repo.getRecipe(recipe));
 	}
 
 	@Override
 	public String getUsersRecipe(String username) {
-		return repo.getUsersRecipe(username);
+		return util.getJSONForObject(repo.getUsersRecipe(username));
 	}
 
 	@Override
 	public String searchRecipes(String searchString) {
-		return repo.searchRecipes(searchString);
+		return util.getJSONForObject(repo.searchRecipes(searchString));
 	}
 
 	@Override
