@@ -1,5 +1,6 @@
 package com.qa.persistence.repository;
 
+import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 import javax.persistence.EntityManager;
@@ -19,18 +20,21 @@ public class MealDBRepostiory implements MealRepostiory {
 	}
 
 	@Override
+	@Transactional(REQUIRED)
 	public String createMeal(Meal meal) {
 		manager.persist(meal);
 		return "{\"message\": \"meal sucessfully created\"}";
 	}
 
 	@Override
+	@Transactional(REQUIRED)
 	public String deleteMeal(Meal meal) {
 		manager.remove(meal);
 		return "{\"message\": \"meal sucessfully deleted\"}";
 	}
 
 	@Override
+	@Transactional(REQUIRED)
 	public String updateMeal(Meal meal) {
 		Meal mealInDB = findMeal(meal.getMealID());
 		manager.remove(mealInDB);
