@@ -6,6 +6,9 @@ import javax.persistence.*;
 
 @Entity
 public class ShoppingList {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long shoppingListID;
 	@OneToOne(mappedBy="username", cascade=CascadeType.PERSIST)
 	private Account account;
 	@OneToMany(mappedBy="shoppingListID", cascade=CascadeType.PERSIST)
