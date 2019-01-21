@@ -14,12 +14,15 @@ public class AccountDBRepository implements AccountRepository {
 	private EntityManager manager;
 
 	@Override
-	public boolean checkAccount(Account account) {
+	public String checkAccount(Account account) {
 		Account accountInDB = findAccount(account.getUsername());
-		if (account.getPassword().equals(accountInDB.getPassword())) {
-			return true;
+		if (accountInDB != null) {
+			if (account.getPassword().equals(accountInDB.getPassword())) {
+				return "{\"message\": \"logged in\"}";
+			}
+			return "{\"message\": \"incorect password\"}";
 		}
-		return false;
+		return "{\"message\": \"account does not exist\"}";
 	}
 
 	@Override
@@ -32,7 +35,7 @@ public class AccountDBRepository implements AccountRepository {
 		}
 		return "{\"message\": \"account with that username already exists\"}";
 	}
-	
+
 	private Account findAccount(String username) {
 		return manager.find(Account.class, username);
 	}
