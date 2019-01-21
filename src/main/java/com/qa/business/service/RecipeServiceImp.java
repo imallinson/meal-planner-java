@@ -1,5 +1,8 @@
 package com.qa.business.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.inject.Inject;
 
 import com.qa.persistence.domain.Ingredient;
@@ -27,7 +30,9 @@ public class RecipeServiceImp implements RecipeService {
 
 	@Override
 	public String searchRecipes(String searchString) {
-		return util.getJSONForObject(repo.searchRecipes(searchString));
+		List<Recipe> recipes = repo.searchRecipes(searchString);
+		List<Recipe> publicRecipes = recipes.stream().filter(r -> r.isPublic()).collect(Collectors.toList());
+		return util.getJSONForObject(publicRecipes);
 	}
 
 	@Override
