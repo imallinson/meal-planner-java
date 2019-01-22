@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import com.qa.persistence.domain.Account;
+import com.qa.persistence.domain.ShoppingList;
 
 @Transactional(SUPPORTS)
 public class AccountDBRepository implements AccountRepository {
@@ -31,6 +32,7 @@ public class AccountDBRepository implements AccountRepository {
 		Account accountInDB = findAccount(account.getUsername());
 		if (accountInDB == null) {
 			manager.persist(account);
+			manager.persist(new ShoppingList(account));
 			return "{\"message\": \"account sucessfully created\"}";
 		}
 		return "{\"message\": \"account with that username already exists\"}";
