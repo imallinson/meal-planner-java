@@ -3,6 +3,8 @@ package com.qa.persistence.repository;
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -25,44 +27,44 @@ public class ShoppingListDBRepository implements ShoppingListRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String addMeal(Meal meal) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Ingredient> ingredients = meal.getRecipe().getIngredients();
+		ingredients.stream().forEach(i -> manager.persist(i));
+		return "{\"message\": \"meal added to shopping list\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String addIngredient(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return null;
+		manager.persist(ingredient);
+		return "{\"message\": \"ingredient added to shopping list\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteIngredient(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return null;
+		manager.remove(ingredient);
+		return "{\"message\": \"ingredient succesfully removed\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String updateIngredient(Ingredient ingredient) {
-		// TODO Auto-generated method stub
-		return null;
+		Ingredient ingredientInDB = findIngredient(ingredient.getIngredientID());
+		manager.remove(ingredientInDB);
+		manager.persist(ingredient);
+		return "{\"message\": \"ingredient succesfully updated\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
-	public String clearShoppingList() {
-		// TODO Auto-generated method stub
-		return null;
+	public String clearShoppingList(String username) {
+		ShoppingList shoppingListInDB = findShoppingList(username);
+		shoppingListInDB.getIngredients().stream().forEach(i -> manager.remove(i));
+		return "{\"message\": \"shopping list cleared\"}";
 	}
 	
 	private ShoppingList findShoppingList(String username) {
 		return manager.find(ShoppingList.class, username);
-	}
-	
-	private Meal findMeal(Long mealID) {
-		return manager.find(Meal.class, mealID);
 	}
 	
 	private Ingredient findIngredient(Long ingredientID) {

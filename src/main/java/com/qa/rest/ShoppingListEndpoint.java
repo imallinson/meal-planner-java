@@ -6,6 +6,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
 import com.qa.business.service.ShoppingListService;
 
@@ -44,10 +45,10 @@ public class ShoppingListEndpoint {
 		return service.updateIngredient(ingredientJSON);
 	}
 	
-	@Path("/clear")
+	@Path("/clear/{username}")
 	@DELETE
-	public String clearShoppingList() {
-		return service.clearShoppingList();
+	public String clearShoppingList(@PathParam("username") String username) {
+		return service.clearShoppingList(username);
 	}
 	
 	public void setService(ShoppingListService service) {

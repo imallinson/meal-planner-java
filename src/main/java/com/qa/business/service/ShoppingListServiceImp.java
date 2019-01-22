@@ -46,8 +46,8 @@ public class ShoppingListServiceImp implements ShoppingListService {
 	}
 
 	@Override
-	public String clearShoppingList() {
-		return repo.clearShoppingList();
+	public String clearShoppingList(String username) {
+		return repo.clearShoppingList(username);
 	}
 
 }

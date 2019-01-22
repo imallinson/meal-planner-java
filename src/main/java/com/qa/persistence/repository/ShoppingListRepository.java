@@ -17,6 +17,6 @@ public interface ShoppingListRepository {
 
 	String updateIngredient(Ingredient ingredient);
 
-	String clearShoppingList();
+	String clearShoppingList(String username);
 
 }
