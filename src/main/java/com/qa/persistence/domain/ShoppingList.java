@@ -7,21 +7,12 @@ import javax.persistence.*;
 @Entity
 public class ShoppingList {
 	@Id
-	@OneToOne(mappedBy="username", cascade=CascadeType.PERSIST)
-	private Account account;
+	private String username;
 	@OneToMany(mappedBy="shoppingListID", cascade=CascadeType.PERSIST)
 	private List<Ingredient> ingredients;
-	
-	public ShoppingList() {
-		
-	}
-	
-	public ShoppingList(Account account) {
-		this.account = account;
-	}
 
-	public Account getAccount() {
-		return account;
+	public String getUsername() {
+		return username;
 	}
 
 	public List<Ingredient> getIngredients() {
