@@ -12,6 +12,6 @@ public interface ShoppingListService {
 
 	String updateIngredient(String ingredientJSON);
 
-	String clearShoppingList();
+	String clearShoppingList(String username);
 
 }

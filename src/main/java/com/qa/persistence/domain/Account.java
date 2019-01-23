@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity; 
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Account {
@@ -16,6 +17,8 @@ public class Account {
 	private List<Meal> meals;
 	@OneToMany(mappedBy="username", cascade=CascadeType.PERSIST)
 	private List<Recipe> recipes;
+	@OneToOne(mappedBy="username", cascade=CascadeType.PERSIST)
+	private ShoppingList shoppingList;
 	
 	public String getPassword() {
 		return password;
@@ -35,6 +38,10 @@ public class Account {
 
 	public List<Recipe> getRecipes() {
 		return recipes;
+	}
+
+	public ShoppingList getShoppingList() {
+		return shoppingList;
 	}
 			
 }

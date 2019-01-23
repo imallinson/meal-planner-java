@@ -1,12 +1,13 @@
 package com.qa.persistence.repository;
 
-import com.qa.persistence.domain.Account;
+import com.qa.persistence.domain.Account; 
 import com.qa.persistence.domain.Ingredient;
 import com.qa.persistence.domain.Meal;
+import com.qa.persistence.domain.ShoppingList;
 
 public interface ShoppingListRepository {
 
-	String getShoppingList(Account account);
+	ShoppingList getShoppingList(Account account);
 
 	String addMeal(Meal meal);
 
@@ -16,6 +17,6 @@ public interface ShoppingListRepository {
 
 	String updateIngredient(Ingredient ingredient);
 
-	String clearShoppingList();
+	String clearShoppingList(String username);
 
 }

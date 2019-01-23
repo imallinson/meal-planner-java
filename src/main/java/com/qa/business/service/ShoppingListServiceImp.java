@@ -1,5 +1,6 @@
 package com.qa.business.service;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.persistence.domain.Account;
@@ -8,6 +9,7 @@ import com.qa.persistence.domain.Meal;
 import com.qa.persistence.repository.ShoppingListRepository;
 import com.qa.util.JSONUtil;
 
+@Default
 public class ShoppingListServiceImp implements ShoppingListService {
 	@Inject
 	private ShoppingListRepository repo;
@@ -18,7 +20,7 @@ public class ShoppingListServiceImp implements ShoppingListService {
 	@Override
 	public String getShoppingList(String accountJSON) {
 		Account account = util.getObjectForJSON(accountJSON, Account.class);
-		return repo.getShoppingList(account);
+		return util.getJSONForObject(repo.getShoppingList(account));
 	}
 
 	@Override
@@ -46,8 +48,8 @@ public class ShoppingListServiceImp implements ShoppingListService {
 	}
 
 	@Override
-	public String clearShoppingList() {
-		return repo.clearShoppingList();
+	public String clearShoppingList(String username) {
+		return repo.clearShoppingList(username);
 	}
 
 }

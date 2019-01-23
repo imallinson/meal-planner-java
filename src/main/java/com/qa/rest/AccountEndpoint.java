@@ -12,7 +12,7 @@ public class AccountEndpoint {
 	@Inject
 	private AccountService service;
 
-	@Path("/get")
+	@Path("/check")
 	@GET
 	public String checkAccount(String accountJSON) {
 		return service.checkAccount(accountJSON);

@@ -14,7 +14,8 @@ public class Meal {
 	private int servings;
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="recipeID")
-	Recipe recipe;
+	private Recipe recipe;
+	private String username;
 	
 	public Date getDate() {
 		return date;
@@ -50,6 +51,10 @@ public class Meal {
 
 	public void setRecipe(Recipe recipe) {
 		this.recipe = recipe;
+	}
+
+	public String getUsername() {
+		return username;
 	}
 	
 }
