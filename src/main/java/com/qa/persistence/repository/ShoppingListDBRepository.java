@@ -5,6 +5,7 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 import java.util.List;
 
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -15,6 +16,7 @@ import com.qa.persistence.domain.Meal;
 import com.qa.persistence.domain.ShoppingList;
 
 @Transactional(SUPPORTS)
+@Default
 public class ShoppingListDBRepository implements ShoppingListRepository {
 	@PersistenceContext(unitName = "primary")
 	private EntityManager manager;

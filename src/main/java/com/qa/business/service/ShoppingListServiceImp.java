@@ -1,5 +1,6 @@
 package com.qa.business.service;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import com.qa.persistence.domain.Account;
@@ -8,6 +9,7 @@ import com.qa.persistence.domain.Meal;
 import com.qa.persistence.repository.ShoppingListRepository;
 import com.qa.util.JSONUtil;
 
+@Default
 public class ShoppingListServiceImp implements ShoppingListService {
 	@Inject
 	private ShoppingListRepository repo;

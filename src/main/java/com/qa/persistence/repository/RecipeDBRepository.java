@@ -6,6 +6,7 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -15,6 +16,7 @@ import com.qa.persistence.domain.Ingredient;
 import com.qa.persistence.domain.Recipe;
 
 @Transactional(SUPPORTS)
+@Default
 public class RecipeDBRepository implements RecipeRepository {
 	@PersistenceContext(unitName = "primary")
 	private EntityManager manager;
