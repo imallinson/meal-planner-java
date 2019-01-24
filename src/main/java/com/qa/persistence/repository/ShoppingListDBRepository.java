@@ -67,7 +67,7 @@ public class ShoppingListDBRepository implements ShoppingListRepository {
 	}
 	
 	private ShoppingList findShoppingList(String username) {
-		Query query = manager.createQuery("SELECT l FROM ShoppingList l WHERE l.username = " + username);
+		Query query = manager.createQuery("SELECT l FROM ShoppingList l WHERE l.account_username = " + username);
 		ShoppingList shoppingList = (ShoppingList) query.getSingleResult();
 		Long shoppingListID = shoppingList.getShoppingListID();
 		return manager.find(ShoppingList.class, shoppingListID);
