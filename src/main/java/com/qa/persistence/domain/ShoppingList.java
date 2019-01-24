@@ -6,6 +6,9 @@ import javax.persistence.*;
 
 @Entity
 public class ShoppingList {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long shoppingListID;
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@MapsId
 	private Account account;
