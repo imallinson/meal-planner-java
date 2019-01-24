@@ -14,6 +14,14 @@ public class ShoppingList {
 	private Account account;
 	@OneToMany(mappedBy="shoppingListID", cascade=CascadeType.PERSIST)
 	private List<Ingredient> ingredients = null;
+	
+	public ShoppingList() {
+		
+	}
+	
+	public ShoppingList(Account account) {
+		this.account = account;
+	}
 
 	public List<Ingredient> getIngredients() {
 		return ingredients;

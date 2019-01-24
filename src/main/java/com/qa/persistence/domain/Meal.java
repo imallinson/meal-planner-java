@@ -1,7 +1,5 @@
 package com.qa.persistence.domain;
 
-import java.util.Date;
-
 import javax.persistence.*;
 
 @Entity
@@ -9,7 +7,7 @@ public class Meal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long mealID;
-	private Date date;
+	private String date;
 	private MealTime mealTime;
 	private int servings;
 	@ManyToOne(cascade=CascadeType.PERSIST)
@@ -17,11 +15,11 @@ public class Meal {
 	private Recipe recipe;
 	private String username;
 	
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
@@ -56,5 +54,6 @@ public class Meal {
 	public String getUsername() {
 		return username;
 	}
+	
 	
 }

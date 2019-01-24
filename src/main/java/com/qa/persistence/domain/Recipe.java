@@ -15,6 +15,7 @@ public class Recipe {
 	@OneToMany(mappedBy="recipeID", cascade=CascadeType.PERSIST)
 	private List<Ingredient> ingredients = null;
 	private String username;
+	private Long mealID;
 
 	public boolean isPublic() {
 		return isPublic;
@@ -50,6 +51,10 @@ public class Recipe {
 
 	public String getUsername() {
 		return username;
+	}
+
+	public Long getMealID() {
+		return mealID;
 	}
 	
 }
