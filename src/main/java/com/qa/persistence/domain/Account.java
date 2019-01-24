@@ -18,9 +18,6 @@ public class Account {
 	private List<Meal> meals = null;
 	@OneToMany(mappedBy="username", cascade=CascadeType.PERSIST)
 	private List<Recipe> recipes = null;
-	@OneToOne(cascade=CascadeType.PERSIST)
-	@MapsId
-	private ShoppingList shoppingList = new ShoppingList();
 	
 	public String getPassword() {
 		return password;
@@ -40,10 +37,6 @@ public class Account {
 
 	public List<Recipe> getRecipes() {
 		return recipes;
-	}
-
-	public ShoppingList getShoppingList() {
-		return shoppingList;
 	}
 			
 }

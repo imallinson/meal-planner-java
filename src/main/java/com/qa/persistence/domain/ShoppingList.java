@@ -7,13 +7,13 @@ import javax.persistence.*;
 @Entity
 public class ShoppingList {
 	@Id
-	private String username;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long shoppingListID;
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@MapsId
+	private Account account;
 	@OneToMany(mappedBy="shoppingListID", cascade=CascadeType.PERSIST)
 	private List<Ingredient> ingredients = null;
-
-	public String getUsername() {
-		return username;
-	}
 
 	public List<Ingredient> getIngredients() {
 		return ingredients;
