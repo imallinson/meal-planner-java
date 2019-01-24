@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity; 
 import javax.persistence.Id;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -14,11 +15,12 @@ public class Account {
 	private String username;
 	private String password;
 	@OneToMany(mappedBy="username", cascade=CascadeType.PERSIST)
-	private List<Meal> meals;
+	private List<Meal> meals = null;
 	@OneToMany(mappedBy="username", cascade=CascadeType.PERSIST)
-	private List<Recipe> recipes;
-	@OneToOne(mappedBy="username", cascade=CascadeType.PERSIST)
-	private ShoppingList shoppingList;
+	private List<Recipe> recipes = null;
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@MapsId
+	private ShoppingList shoppingList = new ShoppingList();
 	
 	public String getPassword() {
 		return password;

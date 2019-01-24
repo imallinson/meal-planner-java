@@ -9,7 +9,7 @@ public class ShoppingList {
 	@Id
 	private String username;
 	@OneToMany(mappedBy="shoppingListID", cascade=CascadeType.PERSIST)
-	private List<Ingredient> ingredients;
+	private List<Ingredient> ingredients = null;
 
 	public String getUsername() {
 		return username;

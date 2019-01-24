@@ -13,7 +13,7 @@ public class Recipe {
 	private String recipeName;
 	private int servings;
 	@OneToMany(mappedBy="recipeID", cascade=CascadeType.PERSIST)
-	private List<Ingredient> ingredients;
+	private List<Ingredient> ingredients = null;
 	private String username;
 
 	public boolean isPublic() {
