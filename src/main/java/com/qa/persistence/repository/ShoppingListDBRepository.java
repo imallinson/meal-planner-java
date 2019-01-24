@@ -8,6 +8,7 @@ import java.util.List;
 import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import com.qa.persistence.domain.Account; 
@@ -22,8 +23,8 @@ public class ShoppingListDBRepository implements ShoppingListRepository {
 	private EntityManager manager;
 
 	@Override
-	public ShoppingList getShoppingList(Account account) {
-		return findShoppingList(account.getUsername());
+	public ShoppingList getShoppingList(String username) {
+		return findShoppingList(username);
 	}
 
 	@Override
@@ -66,7 +67,10 @@ public class ShoppingListDBRepository implements ShoppingListRepository {
 	}
 	
 	private ShoppingList findShoppingList(String username) {
-		return manager.find(ShoppingList.class, username);
+		Query query = manager.createQuery("SELECT l FROM ShoppingList l WHERE l.username = " + username);
+		ShoppingList shoppingList = (ShoppingList) query.getSingleResult();
+		Long shoppingListID = shoppingList.getShoppingListID();
+		return manager.find(ShoppingList.class, shoppingListID);
 	}
 	
 	private Ingredient findIngredient(Long ingredientID) {

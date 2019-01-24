@@ -15,10 +15,10 @@ public class ShoppingListEndpoint {
 	@Inject
 	private ShoppingListService service;
 	
-	@Path("/get")
+	@Path("/get/{username}")
 	@GET
-	public String getShoppingList(String accountJSON) {
-		return service.getShoppingList(accountJSON);
+	public String getShoppingList(@PathParam("username") String username) {
+		return service.getShoppingList(username);
 	}
 	
 	@Path("/meal")

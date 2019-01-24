@@ -2,7 +2,7 @@ package com.qa.business.service;
 
 public interface ShoppingListService {
 
-	String getShoppingList(String accountJSON);
+	String getShoppingList(String username);
 
 	String addMeal(String mealJSON);
 

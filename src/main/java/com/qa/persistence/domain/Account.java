@@ -15,9 +15,9 @@ public class Account {
 	private String username;
 	private String password;
 	@OneToMany(mappedBy="username", cascade=CascadeType.PERSIST)
-	private List<Meal> meals = null;
+	private List<Meal> meals;
 	@OneToMany(mappedBy="username", cascade=CascadeType.PERSIST)
-	private List<Recipe> recipes = null;
+	private List<Recipe> recipes;
 	
 	public String getPassword() {
 		return password;

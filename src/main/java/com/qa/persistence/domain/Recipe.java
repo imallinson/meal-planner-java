@@ -13,7 +13,7 @@ public class Recipe {
 	private String recipeName;
 	private int servings;
 	@OneToMany(mappedBy="recipeID", cascade=CascadeType.PERSIST)
-	private List<Ingredient> ingredients = null;
+	private List<Ingredient> ingredients;
 	private String username;
 	private Long mealID;
 
