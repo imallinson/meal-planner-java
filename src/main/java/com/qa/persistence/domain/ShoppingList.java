@@ -6,10 +6,7 @@ import javax.persistence.*;
 
 @Entity
 public class ShoppingList {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long shoppingListID;
-	@OneToOne(cascade=CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@MapsId
 	private Account account;
 	@OneToMany(mappedBy="shoppingListID", cascade=CascadeType.PERSIST)
@@ -19,12 +16,12 @@ public class ShoppingList {
 		return ingredients;
 	}
 
-	public Long getShoppingListID() {
-		return shoppingListID;
-	}
-
 	public Account getAccount() {
 		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 	
 }

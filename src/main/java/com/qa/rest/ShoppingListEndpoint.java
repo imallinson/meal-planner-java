@@ -15,10 +15,10 @@ public class ShoppingListEndpoint {
 	@Inject
 	private ShoppingListService service;
 	
-	@Path("/get/{username}")
+	@Path("/get/{id}")
 	@GET
-	public String getShoppingList(@PathParam("username") String username) {
-		return service.getShoppingList(username);
+	public String getShoppingList(@PathParam("id") Long accountID) {
+		return service.getShoppingList(accountID);
 	}
 	
 	@Path("/meal")
@@ -45,10 +45,10 @@ public class ShoppingListEndpoint {
 		return service.updateIngredient(ingredientJSON);
 	}
 	
-	@Path("/clear/{username}")
+	@Path("/clear/{id}")
 	@DELETE
-	public String clearShoppingList(@PathParam("username") String username) {
-		return service.clearShoppingList(username);
+	public String clearShoppingList(@PathParam("id") Long accountID) {
+		return service.clearShoppingList(accountID);
 	}
 	
 	public void setService(ShoppingListService service) {

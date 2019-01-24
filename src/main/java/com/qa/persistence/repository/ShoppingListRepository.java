@@ -6,7 +6,7 @@ import com.qa.persistence.domain.ShoppingList;
 
 public interface ShoppingListRepository {
 
-	ShoppingList getShoppingList(String username);
+	ShoppingList getShoppingList(Long accountID);
 
 	String addMeal(Meal meal);
 
@@ -16,6 +16,6 @@ public interface ShoppingListRepository {
 
 	String updateIngredient(Ingredient ingredient);
 
-	String clearShoppingList(String username);
+	String clearShoppingList(Long accountID);
 
 }

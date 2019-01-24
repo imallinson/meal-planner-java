@@ -1,6 +1,6 @@
 package com.qa.persistence.repository;
 
-import static javax.transaction.Transactional.TxType.REQUIRED;
+import static javax.transaction.Transactional.TxType.REQUIRED; 
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 import java.util.List;
@@ -10,8 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-
-import com.qa.persistence.domain.Account; 
+ 
 import com.qa.persistence.domain.Ingredient;
 import com.qa.persistence.domain.Meal;
 import com.qa.persistence.domain.ShoppingList;
@@ -23,8 +22,8 @@ public class ShoppingListDBRepository implements ShoppingListRepository {
 	private EntityManager manager;
 
 	@Override
-	public ShoppingList getShoppingList(String username) {
-		return findShoppingList(username);
+	public ShoppingList getShoppingList(Long accountID) {
+		return findShoppingList(accountID);
 	}
 
 	@Override
@@ -60,17 +59,14 @@ public class ShoppingListDBRepository implements ShoppingListRepository {
 
 	@Override
 	@Transactional(REQUIRED)
-	public String clearShoppingList(String username) {
-		ShoppingList shoppingListInDB = findShoppingList(username);
+	public String clearShoppingList(Long accountID) {
+		ShoppingList shoppingListInDB = findShoppingList(accountID);
 		shoppingListInDB.getIngredients().stream().forEach(i -> manager.remove(i));
 		return "{\"message\": \"shopping list cleared\"}";
 	}
 	
-	private ShoppingList findShoppingList(String username) {
-		Query query = manager.createQuery("SELECT l FROM ShoppingList l WHERE l.account_username = " + username);
-		ShoppingList shoppingList = (ShoppingList) query.getSingleResult();
-		Long shoppingListID = shoppingList.getShoppingListID();
-		return manager.find(ShoppingList.class, shoppingListID);
+	private ShoppingList findShoppingList(Long accountID) {
+		return manager.find(ShoppingList.class, accountID);
 	}
 	
 	private Ingredient findIngredient(Long ingredientID) {

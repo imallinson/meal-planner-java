@@ -17,8 +17,8 @@ public class ShoppingListServiceImp implements ShoppingListService {
 	private JSONUtil util;
 	
 	@Override
-	public String getShoppingList(String username) {
-		return util.getJSONForObject(repo.getShoppingList(username));
+	public String getShoppingList(Long accountID) {
+		return util.getJSONForObject(repo.getShoppingList(accountID));
 	}
 
 	@Override
@@ -46,8 +46,8 @@ public class ShoppingListServiceImp implements ShoppingListService {
 	}
 
 	@Override
-	public String clearShoppingList(String username) {
-		return repo.clearShoppingList(username);
+	public String clearShoppingList(Long accountID) {
+		return repo.clearShoppingList(accountID);
 	}
 
 }

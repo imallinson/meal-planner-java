@@ -2,7 +2,7 @@ package com.qa.business.service;
 
 public interface ShoppingListService {
 
-	String getShoppingList(String username);
+	String getShoppingList(Long accountID);
 
 	String addMeal(String mealJSON);
 
@@ -12,6 +12,6 @@ public interface ShoppingListService {
 
 	String updateIngredient(String ingredientJSON);
 
-	String clearShoppingList(String username);
+	String clearShoppingList(Long accountID);
 
 }
