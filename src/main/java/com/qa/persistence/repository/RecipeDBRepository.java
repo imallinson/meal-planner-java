@@ -22,8 +22,8 @@ public class RecipeDBRepository implements RecipeRepository {
 	private EntityManager manager;
 
 	@Override
-	public Recipe getRecipe(Recipe recipe) {
-		return findRecipe(recipe.getRecipeID());
+	public Recipe getRecipe(Long recipeID) {
+		return findRecipe(recipeID);
 	}
 
 	@Override

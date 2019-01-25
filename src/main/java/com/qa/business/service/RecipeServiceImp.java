@@ -20,9 +20,8 @@ public class RecipeServiceImp implements RecipeService {
 	private JSONUtil util;
 	
 	@Override
-	public String getRecipe(String recipeJSON) {
-		Recipe recipe = util.getObjectForJSON(recipeJSON, Recipe.class);
-		return util.getJSONForObject(repo.getRecipe(recipe));
+	public String getRecipe(Long recipeID) {
+		return util.getJSONForObject(repo.getRecipe(recipeID));
 	}
 
 	@Override

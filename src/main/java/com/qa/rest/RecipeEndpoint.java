@@ -15,10 +15,10 @@ public class RecipeEndpoint {
 	@Inject
 	private RecipeService service;
 
-	@Path("/get")
+	@Path("/get/{id}")
 	@GET
-	public String getRecipe(String recipeJSON) {
-		return service.getRecipe(recipeJSON);
+	public String getRecipe(Long recipeID) {
+		return service.getRecipe(recipeID);
 	}
 	
 	@Path("/user/{username}")

@@ -7,7 +7,7 @@ import com.qa.persistence.domain.Recipe;
 
 public interface RecipeRepository {
 
-	Recipe getRecipe(Recipe recipe);
+	Recipe getRecipe(Long recipeID);
 
 	List<Recipe> getUsersRecipe(String username);
 

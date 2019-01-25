@@ -2,7 +2,7 @@ package com.qa.business.service;
 
 public interface RecipeService {
 
-	String getRecipe(String recipeJSON);
+	String getRecipe(Long recipeID);
 
 	String createRecipe(String recipeJSON);
 
