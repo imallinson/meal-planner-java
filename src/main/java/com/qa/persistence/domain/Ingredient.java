@@ -10,10 +10,6 @@ public class Ingredient {
 	private String ingredientName;
 	private Double amount;
 	private Measurement measure;
-	private boolean isVegitarian;
-	private boolean isVegan;
-	private boolean hasGluten;
-	private boolean hasNuts;
 	private Long recipeID;
 	private Long shoppingListID;
 
@@ -23,38 +19,6 @@ public class Ingredient {
 
 	public void setIngredientName(String ingredientName) {
 		this.ingredientName = ingredientName;
-	}
-
-	public boolean isVegitarian() {
-		return isVegitarian;
-	}
-
-	public void setVegitarian(boolean isVegitarian) {
-		this.isVegitarian = isVegitarian;
-	}
-
-	public boolean isVegan() {
-		return isVegan;
-	}
-
-	public void setVegan(boolean isVegan) {
-		this.isVegan = isVegan;
-	}
-
-	public boolean isHasGluten() {
-		return hasGluten;
-	}
-
-	public void setHasGluten(boolean hasGluten) {
-		this.hasGluten = hasGluten;
-	}
-
-	public boolean isHasNuts() {
-		return hasNuts;
-	}
-
-	public void setHasNuts(boolean hasNuts) {
-		this.hasNuts = hasNuts;
 	}
 
 	public double getAmount() {

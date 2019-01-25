@@ -1,7 +1,7 @@
 package com.qa.rest;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
@@ -13,7 +13,7 @@ public class AccountEndpoint {
 	private AccountService service;
 
 	@Path("/check")
-	@GET
+	@PUT
 	public String checkAccount(String accountJSON) {
 		return service.checkAccount(accountJSON);
 	}
