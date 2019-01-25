@@ -12,7 +12,7 @@ public interface ShoppingListRepository {
 
 	String addIngredient(Ingredient ingredient);
 
-	String deleteIngredient(Ingredient ingredient);
+	String deleteIngredient(Long ingredientID);
 
 	String updateIngredient(Ingredient ingredient);
 

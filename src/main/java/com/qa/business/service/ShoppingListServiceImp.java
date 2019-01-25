@@ -34,9 +34,8 @@ public class ShoppingListServiceImp implements ShoppingListService {
 	}
 
 	@Override
-	public String deleteIngredient(String ingredientJSON) {
-		Ingredient ingredient = util.getObjectForJSON(ingredientJSON, Ingredient.class);
-		return repo.deleteIngredient(ingredient);
+	public String deleteIngredient(Long ingredientID) {
+		return repo.deleteIngredient(ingredientID);
 	}
 
 	@Override

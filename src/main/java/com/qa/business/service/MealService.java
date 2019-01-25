@@ -2,11 +2,11 @@ package com.qa.business.service;
 
 public interface MealService {
 
-	String getMeal(String mealJSON);
+	String getMeal(Long mealID);
 
 	String createMeal(String mealJSON);
 
-	String deleteMeal(String mealJSON);
+	String deleteMeal(Long mealID);
 
 	String updateMeal(String mealJSON);
 

@@ -43,7 +43,8 @@ public class ShoppingListDBRepository implements ShoppingListRepository {
 
 	@Override
 	@Transactional(REQUIRED)
-	public String deleteIngredient(Ingredient ingredient) {
+	public String deleteIngredient(Long ingredientID) {
+		Ingredient ingredient = findIngredient(ingredientID);
 		manager.remove(ingredient);
 		return "{\"message\": \"ingredient succesfully removed\"}";
 	}

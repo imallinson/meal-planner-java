@@ -33,10 +33,10 @@ public class ShoppingListEndpoint {
 		return service.addIngredient(ingredientJSON);
 	}
 	
-	@Path("/ingredient")
+	@Path("/ingredient/{id}")
 	@DELETE
-	public String deleteIngredient(String ingredientJSON) {
-		return service.deleteIngredient(ingredientJSON);
+	public String deleteIngredient(@PathParam("id") Long ingredientID) {
+		return service.deleteIngredient(ingredientID);
 	}
 	
 	@Path("/ingredient")

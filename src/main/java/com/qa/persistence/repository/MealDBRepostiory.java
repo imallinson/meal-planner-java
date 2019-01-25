@@ -17,8 +17,8 @@ public class MealDBRepostiory implements MealRepostiory {
 	private EntityManager manager;
 
 	@Override
-	public Meal getMeal(Meal meal) {
-		return findMeal(meal.getMealID());
+	public Meal getMeal(Long mealID) {
+		return findMeal(mealID);
 	}
 
 	@Override
@@ -30,7 +30,8 @@ public class MealDBRepostiory implements MealRepostiory {
 
 	@Override
 	@Transactional(REQUIRED)
-	public String deleteMeal(Meal meal) {
+	public String deleteMeal(Long mealID) {
+		Meal meal = findMeal(mealID);
 		manager.remove(meal);
 		return "{\"message\": \"meal sucessfully deleted\"}";
 	}

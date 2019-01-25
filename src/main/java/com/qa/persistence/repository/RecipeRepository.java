@@ -15,13 +15,13 @@ public interface RecipeRepository {
 
 	String createRecipe(Recipe recipe);
 
-	String deleteRecipe(Recipe recipe);
+	String deleteRecipe(Long recipeID);
 
 	String updateRecipe(Recipe recipe);
 
 	String addIngredient(Ingredient ingredient);
 
-	String deleteIngredient(Ingredient ingredient);
+	String deleteIngredient(Long ingredientID);
 
 	String updateIngredient(Ingredient ingredient);
 

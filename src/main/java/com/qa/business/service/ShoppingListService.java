@@ -8,7 +8,7 @@ public interface ShoppingListService {
 
 	String addIngredient(String ingredientJSON);
 
-	String deleteIngredient(String ingredientJSON);
+	String deleteIngredient(Long ingredientID);
 
 	String updateIngredient(String ingredientJSON);
 

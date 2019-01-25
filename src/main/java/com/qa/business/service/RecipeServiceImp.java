@@ -43,9 +43,8 @@ public class RecipeServiceImp implements RecipeService {
 	}
 
 	@Override
-	public String deleteRecipe(String recipeJSON) {
-		Recipe recipe = util.getObjectForJSON(recipeJSON, Recipe.class);
-		return repo.deleteRecipe(recipe);
+	public String deleteRecipe(Long recipeID) {
+		return repo.deleteRecipe(recipeID);
 	}
 
 	@Override
@@ -61,9 +60,8 @@ public class RecipeServiceImp implements RecipeService {
 	}
 
 	@Override
-	public String deleteIngredient(String ingredientJSON) {
-		Ingredient ingredient = util.getObjectForJSON(ingredientJSON, Ingredient.class);
-		return repo.deleteIngredient(ingredient);
+	public String deleteIngredient(Long ingredientID) {
+		return repo.deleteIngredient(ingredientID);
 	}
 
 	@Override

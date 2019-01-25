@@ -39,10 +39,10 @@ public class RecipeEndpoint {
 		return service.createRecipe(recipeJSON);
 	}
 	
-	@Path("/delete")
+	@Path("/delete/{id}")
 	@DELETE
-	public String deleteRecipe(String recipeJSON) {
-		return service.deleteRecipe(recipeJSON);
+	public String deleteRecipe(@PathParam("id") Long recipeID) {
+		return service.deleteRecipe(recipeID);
 	}
 	
 	@Path("/update")
@@ -57,10 +57,10 @@ public class RecipeEndpoint {
 		return service.addIngredient(ingredientJSON);
 	}
 	
-	@Path("/ingredient")
+	@Path("/ingredient/{id}")
 	@DELETE
-	public String deleteIngredient(String ingredientJSON) {
-		return service.deleteIngredient(ingredientJSON);
+	public String deleteIngredient(@PathParam("id") Long recipeID) {
+		return service.deleteIngredient(recipeID);
 	}
 	
 	@Path("/ingredient")

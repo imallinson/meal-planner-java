@@ -16,9 +16,8 @@ public class MealServiceImp implements MealService {
 	private JSONUtil util;
 	
 	@Override
-	public String getMeal(String mealJSON) {
-		Meal meal = util.getObjectForJSON(mealJSON, Meal.class);
-		return util.getJSONForObject(repo.getMeal(meal));
+	public String getMeal(Long mealID) {
+		return util.getJSONForObject(repo.getMeal(mealID));
 	}
 
 	@Override
@@ -28,9 +27,8 @@ public class MealServiceImp implements MealService {
 	}
 
 	@Override
-	public String deleteMeal(String mealJSON) {
-		Meal meal = util.getObjectForJSON(mealJSON, Meal.class);
-		return repo.deleteMeal(meal);
+	public String deleteMeal(Long mealID) {
+		return repo.deleteMeal(mealID);
 	}
 
 	@Override

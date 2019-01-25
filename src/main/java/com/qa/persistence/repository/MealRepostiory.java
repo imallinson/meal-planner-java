@@ -4,11 +4,11 @@ import com.qa.persistence.domain.Meal;
 
 public interface MealRepostiory {
 
-	Meal getMeal(Meal meal);
+	Meal getMeal(Long mealID);
 
 	String createMeal(Meal meal);
 
-	String deleteMeal(Meal meal);
+	String deleteMeal(Long mealID);
 
 	String updateMeal(Meal meal);
 

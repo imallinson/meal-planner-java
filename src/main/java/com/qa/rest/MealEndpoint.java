@@ -6,6 +6,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
 import com.qa.business.service.MealService;
 
@@ -14,10 +15,10 @@ public class MealEndpoint {
 	@Inject
 	private MealService service;
 
-	@Path("/get")
+	@Path("/get/{id}")
 	@GET
-	public String getMeal(String mealJSON) {
-		return service.getMeal(mealJSON);
+	public String getMeal(@PathParam("id") Long mealID) {
+		return service.getMeal(mealID);
 	}
 	
 	@Path("/create")
@@ -26,10 +27,10 @@ public class MealEndpoint {
 		return service.createMeal(mealJSON);
 	}
 	
-	@Path("/delete")
+	@Path("/delete/{id}")
 	@DELETE
-	public String deleteMeal(String mealJSON) {
-		return service.deleteMeal(mealJSON);
+	public String deleteMeal(@PathParam("id") Long mealID) {
+		return service.deleteMeal(mealID);
 	}
 	
 	@Path("/update")
