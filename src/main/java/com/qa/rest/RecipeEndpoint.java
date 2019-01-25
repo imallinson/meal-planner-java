@@ -17,7 +17,7 @@ public class RecipeEndpoint {
 
 	@Path("/get/{id}")
 	@GET
-	public String getRecipe(Long recipeID) {
+	public String getRecipe(@PathParam("id") Long recipeID) {
 		return service.getRecipe(recipeID);
 	}
 	
