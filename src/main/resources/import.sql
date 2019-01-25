@@ -1,4 +1,4 @@
-INSERT INTO Account (username, password) VALUES ('imallinson', password')
+INSERT INTO Account (username, password) VALUES ('imallinson', 'password')
 INSERT INTO ShoppingList (account_username) VALUES ('imallinson')
 INSERT INTO Meal (date, mealTime, servings, username) VALUES ('20190130', DINNER, 1, 'imallinson')
 INSERT INTO Recipe (isPublic, recipeName, servings, username, mealID) VALUES (true, 'Burgers', 1, 'imallinson', 1)
